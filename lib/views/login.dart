@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/myInput.dart';
 
 class LoginPage extends StatefulWidget{
   const LoginPage({Key? key}) : super(key: key); 
@@ -15,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
 			body: SafeArea(
 				child: Center (
 					child : Column(
+						mainAxisAlignment : MainAxisAlignment.center,
 					children: [
 						SizedBox(height: 25),
 						// text
@@ -33,29 +35,52 @@ class _LoginPageState extends State<LoginPage> {
 						SizedBox(height: 25),
 
 						//email input 
+						MyInput(),						
+						SizedBox(height: 10),
+						//password input 
 						Padding(
-							padding : const EdgeInsets.symmetric(horizontal:25.0),
+      padding : const EdgeInsets.symmetric(horizontal:25.0),
+      child: Container(
+                decoration : BoxDecoration(
+                  color : Colors.white,
+                  border : Border.all(color : Colors.white),
+                  borderRadius : BorderRadius.circular(12), 
+                ),
+                child: Padding(
+                  padding : const EdgeInsets.only(left: 20),
+                  child : TextField(
+                  	obscureText : true,
+                    decoration : InputDecoration(
+                      border: InputBorder.none,
+                      hintText : 'Password',
+                    ),
+                  ), 
+                ),
+              ),
+    ),
+						SizedBox(height: 10),
+						//button login  
+						Padding ( 
+							padding : const EdgeInsets.symmetric(horizontal: 25.0),
 							child : Container(
+								padding : const EdgeInsets.all(15),
 								decoration : BoxDecoration(
-									color : Colors.white,
-									border : Border.all(color : Colors.white),
-									borderRadius : BorderRadius.circular(12), 
+									color : Colors.deepPurple,
+									borderRadius : BorderRadius.circular(10),
 								),
-								child: Padding(
-									padding : const EdgeInsets.only(left: 20),
-									child : TextField(
-										decoration : InputDecoration(
-											border: InputBorder.none,
-											hintText : 'Email',
+								child: Center(
+									child: Text(
+										'Se connecter',
+										style : TextStyle(
+											color : Colors.white,
+											fontSize : 20,
 										),
-									), 
+
+									),
+
 								),
 							),
 						),
-
-						//password input 
-
-						//button login  
 					] ),
 				),
 			),
